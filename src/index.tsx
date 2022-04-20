@@ -11,14 +11,19 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<Main />} />
-      </Routes>
-    </ThemeProvider>
-  </BrowserRouter>
+  // <BrowserRouter>
+  //   <ThemeProvider theme={theme}>
+  //     <GlobalStyle />
+  //     <Routes>
+  //       <Route path="/" element={<Main />} />
+  //     </Routes>
+  //   </ThemeProvider>
+  // </BrowserRouter>
+
+  <ThemeProvider theme={theme}>
+    <GlobalStyle />
+    <Main />
+  </ThemeProvider>
 );
 
 reportWebVitals();

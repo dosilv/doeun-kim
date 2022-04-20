@@ -28,6 +28,7 @@ const Contact = ({ setIndex }: propTypes) => {
                       ? () => window.open(contact[1])
                       : undefined
                   }
+                  clickable={contact[1].startsWith("http")}
                 >
                   {contact[1]}
                 </Detail>
@@ -36,7 +37,7 @@ const Contact = ({ setIndex }: propTypes) => {
           </TextWrapper>
         </>
       }
-      bgColor="#daaeae"
+      bgColor="#ceabab"
       setIndex={setIndex}
     />
   );
@@ -59,8 +60,11 @@ const TextWrapper = styled.div`
 
   * {
     font-size: 20px;
+  }
+  @media ${({ theme }) => theme.mobile} {
+    margin-left: 20px;
 
-    @media ${({ theme }) => theme.mobile} {
+    * {
       font-size: 16px;
     }
   }
@@ -72,10 +76,13 @@ const Text = styled.div`
 
 const Lable = styled.span`
   font-weight: 700;
+  width: 80px;
+  display: inline-block;
 `;
 
-const Detail = styled.button`
+const Detail = styled.button<{ clickable: boolean }>`
   font-weight: 300;
+  cursor: ${(props) => (props.clickable ? "pointer" : "text")};
 `;
 
 export default Contact;

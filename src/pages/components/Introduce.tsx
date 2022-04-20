@@ -37,7 +37,7 @@ const Introduce = ({ setIndex }: propTypes) => {
           </Milestone>
         </>
       }
-      bgColor="#a5b8a6"
+      bgColor="#a5beac"
       setIndex={setIndex}
     />
   );
@@ -56,7 +56,7 @@ const Desc = styled.div`
 
 const Milestone = styled.div`
   line-height: 1.75;
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const Date = styled.span`

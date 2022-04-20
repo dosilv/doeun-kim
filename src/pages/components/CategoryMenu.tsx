@@ -7,7 +7,7 @@ interface propTypes {
   setIndex: (index: number) => void;
 }
 
-const IndexBox = ({ index, label, curIndex, setIndex }: propTypes) => {
+const CategoryMenu = ({ index, label, curIndex, setIndex }: propTypes) => {
   return (
     <Index
       showAll={curIndex === -1}
@@ -19,17 +19,19 @@ const IndexBox = ({ index, label, curIndex, setIndex }: propTypes) => {
   );
 };
 
-const Index = styled.div<{ showAll: boolean; selected: boolean }>`
+const Index = styled.button<{ showAll: boolean; selected: boolean }>`
+  display: block;
   opacity: ${(props) => (props.showAll ? "100%" : "0%")};
-  margin: 15px;
+  margin: 30px 15px;
   padding: 0px 5px;
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 700;
   transition: all 1s;
   cursor: pointer;
+  color: white;
 
   &:hover {
-    background-color: white;
+    color: #2f2f2f;
   }
 
   @media ${({ theme }) => theme.mobile} {
@@ -41,4 +43,4 @@ const ProjectTitle = styled.div<{ bgColor: string }>`
   font-size: 40px;
 `;
 
-export default IndexBox;
+export default CategoryMenu;

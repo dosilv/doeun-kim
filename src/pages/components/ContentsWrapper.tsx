@@ -19,11 +19,11 @@ const ContentsWrapper = ({ title, child, bgColor, setIndex }: propTypes) => {
 };
 
 const Wrapper = styled.div<{ bgColor: string }>`
+  ${({ theme }) => theme.flexColumnSet()}
   background-color: ${(props) => props.bgColor};
   width: 100%;
   height: 100vh;
   ${({ theme }) => theme.fadeIn}
-  ${({ theme }) => theme.flexColumnSet()}
 `;
 
 const Back = styled.button`

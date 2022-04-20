@@ -20,7 +20,6 @@ ${reset}
 
 * {
     box-sizing: border-box;
-
     -ms-overflow-style: none;
   ::-webkit-scrollbar {
     display: none;
@@ -73,9 +72,16 @@ code {
   button {
     border: none;
     outline: none;
+    color: black;
     text-shadow: none;
     background: none;
+    box-shadow: none;
     cursor: pointer;
+    -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   @keyframes fadeIn {

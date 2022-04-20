@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Banner = () => {
@@ -28,48 +28,73 @@ const Banner = () => {
     setTimeout(interval, 4000);
   };
 
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     interval();
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      threshold: 0,
+      rootMargin: "-5%",
+    });
+
+    observer.observe(ref.current!);
   }, []);
 
   return (
-    <FirstHalf>
+    <Wrapper ref={ref}>
       <NameWrapper>
-        <p>KIM</p>
-        <p>DO</p>
-        <p>EUN</p>
+        KIM
+        <br />
+        DO
+        <br />
+        EUN
       </NameWrapper>
       <ChangingText>
         <p>{front}</p>
         <p>{dev}</p>
       </ChangingText>
-    </FirstHalf>
+    </Wrapper>
   );
 };
 
-const FirstHalf = styled.div`
+const Wrapper = styled.div`
   ${({ theme }) => theme.flexColumnSet()}
   position: relative;
   width: 40%;
+  scroll-margin-top: 0;
 
   @media ${({ theme }) => theme.mobile} {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     padding: 30px;
   }
 `;
 
 const NameWrapper = styled.div`
-  width: fit-content;
+  max-width: 100%;
   font-size: 200px;
   font-weight: 700;
-  background-size: 400%;
+  white-space: pre-wrap;
+
   background-image: linear-gradient(60deg, #baafd6, #f1cdab);
-  animation: wave 4s ease-in-out 0s infinite normal;
+  background-size: 400%;
   background-clip: text;
+  animation: wave 3s ease-in-out 0s infinite normal;
+  box-decoration-break: clone;
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+  p {
+  }
 
   @media ${({ theme }) => theme.mobile} {
     font-size: 140px;

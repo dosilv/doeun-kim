@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import smoothscroll from "smoothscroll-polyfill";
 import Banner from "./components/Banner";
 import Dashboard from "./components/Dashboard";
 
 function Main() {
+  smoothscroll.polyfill();
+
   return (
     <Wrapper>
       <Banner />

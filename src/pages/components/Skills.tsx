@@ -7,10 +7,10 @@ interface propTypes {
 
 const Skills = ({ setIndex }: propTypes) => {
   const skillList = [
+    ["Dart/Flutter", "78"],
     ["HTML/CSS", "90"],
-    ["React.js", "80"],
+    ["React.js", "70"],
     ["TypeScript", "40"],
-    ["Dart/Flutter", "75"],
   ];
   return (
     <ContentsWrapper

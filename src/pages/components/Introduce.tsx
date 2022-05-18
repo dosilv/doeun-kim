@@ -11,7 +11,7 @@ const Introduce = ({ setIndex }: propTypes) => {
       title="Introduce"
       child={
         <>
-          <Emoji>💻 💗</Emoji>
+          <Emoji>🙋🏻‍♀️💗💻 </Emoji>
           <Desc>
             영문과를 졸업한 문과생 비전공자였으나, 개발에 대한 호기심과 관심이
             저를 코딩 부트캠프로 이끌었습니다. 적성을 찾았다고 자신있게 말할

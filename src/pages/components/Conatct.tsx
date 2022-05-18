@@ -17,7 +17,7 @@ const Contact = ({ setIndex }: propTypes) => {
       title="Contact"
       child={
         <>
-          <ProfileWrapper src="/assets/profile2.jpeg" />
+          <ProfileWrapper src="/assets/profile.jpeg" />
           <TextWrapper>
             {contactList.map((contact, idx) => (
               <Text key={idx}>
@@ -78,6 +78,10 @@ const Lable = styled.span`
   font-weight: 700;
   width: 80px;
   display: inline-block;
+
+  @media ${({ theme }) => theme.mobile} {
+    width: 65px;
+  }
 `;
 
 const Detail = styled.button<{ clickable: boolean }>`
